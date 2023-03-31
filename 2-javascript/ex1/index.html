@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Hello World</title>
+</head>
+
+<body>
+    <header>
+        <h1 class="tituloPrincipal">IMC</h1>
+    </header>
+    <main>
+        <form id="formulario" class="formulario">
+            <label><strong>Quilos</strong></label><br>
+            <input type="text" name="quilos" placeholder="Exemplo: 65.7"><br><br>
+            
+            <label><strong>Metros</strong></label><br>
+            <input type="number" name="metros" placeholder="Exemplo:1"><br><br>
+            
+            <label><strong>Centimetros</strong></label><br>
+            <input type="number" name="centimetros" placeholder="Exemplo: 75"><br><br>
+            
+            <label><strong>Resultado</strong></label><br>
+            <input type="number" name="resultado" disabled="disabled"><br><br>
+            
+            <div class="botao">
+                <a class="textoBotao" href="#" onclick="enviar()">Obter resultado</a>
+            </div>
+            <p id="paragraph"></p>
+        </form>
+    </main>
+    <script src="./script.js"></script>
+</body>
+</html>

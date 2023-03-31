@@ -1,0 +1,29 @@
+body {
+    background-color: rgb(52, 58, 64, 0.8)
+}
+
+.tituloPrincipal {
+    text-align: center;
+    margin-top: 180px;
+}
+
+.formulario{
+    text-align: center;
+}
+
+.botao {
+    margin-top:10px;
+    flex:1;
+    background-color: rgb(0,0,200);
+    width: 120px;
+    margin: auto;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.textoBotao {
+    flex:1;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
