@@ -1,6 +1,6 @@
 # COMANDOS NO SHELL
 
-<strong>pwm</strong>Mostra em qual diretório está
+<strong>pwm</strong>Mostra em qual diretório está<br>
 <strong>cd pasta</strong> Abre uma pasta
 <strong>./</strong> Pasta atual
 <strong>../</strong> Pasta anterior
