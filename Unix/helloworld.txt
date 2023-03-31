@@ -1,0 +1,1 @@
+Olá Mundo. Escrevendo pelo terminal via echo
