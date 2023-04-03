@@ -12,7 +12,7 @@
 <strong>echo</strong> Imprimir um arquivo</br>
 <strong>cat</strong> Concatena um arquivo</br>
 <strong>mv</strong> Move arquivos</br>
-<strong>grep 'letra/palavra'</strong> Procura uma palavra determinada em um arquivo</br>
+<strong>grep 'letra/palavra' < programa.extensão </strong> Procura uma palavra determinada em um arquivo</br>
 <strong>></strong> Maior que = Escreve a saída do programa para dentro do arquivo</br>
 <b>Exemplo:</b> cat > texto.txt</br>
 <strong>>></strong> Maior Maior que = Não sobrescreve o arquivo, mas adiciona a saída do programa ao final dele.</br>
