@@ -1,7 +1,7 @@
 function enviar (event) {
     var formulario = document.getElementById("formulario");
     var paragraph = document.getElementById("paragraph");
-    var tabela_imc = document.getElementById("tabelaIMC"); 
+    var tabelaIMC = document.getElementById("tabelaIMC"); 
     
     var quilos = Number(formulario.quilos.value);
     if (isNaN(quilos) || quilos <=0 || quilos >300){
@@ -24,7 +24,7 @@ function enviar (event) {
                 formulario.resultado.value = imc.toFixed(2);
                 paragraph.innerHTML="";
 
-                tabela_imc.src ="./tabela-imc.png";
+                tabelaIMC.src ="./tabela-imc.png";
 
             }
         }
@@ -33,4 +33,5 @@ function enviar (event) {
 
 function reset() {
     document.getElementById("formulario").reset();
+    document.getElementById("tabelaIMC").src = "";
 }

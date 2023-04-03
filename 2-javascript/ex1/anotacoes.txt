@@ -1,0 +1,4 @@
+Exercício de IMC
+Neste exercício, realizo o teste de IMC utilizando HTML, CSS e Java Script
+Neste exercício, ao colocar todas as informações no campo e clicar em " Obter resultado ", aparece o resultado do seu IMC e abaixo, aparece uma tabela mostrando em qual nível está seu IMC
+Caso o usuário colocar alguma informação errada, o resultado n é obtido até ele arrumar essas informações.
