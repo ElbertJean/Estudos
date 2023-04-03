@@ -10,27 +10,32 @@
 
 <body>
     <header>
-        <h1 class="tituloPrincipal">IMC</h1>
+        <h1 class="divH1"><img class="imagemH1" src="./title.png"></h1>
     </header>
     <main>
         <form id="formulario" class="formulario">
             <label><strong>Quilos</strong></label><br>
-            <input type="text" name="quilos" placeholder="Exemplo: 65.7"><br><br>
+            <input class="input" type="text" name="quilos" placeholder="Exemplo: 65.7"><br><br>
             
             <label><strong>Metros</strong></label><br>
-            <input type="number" name="metros" placeholder="Exemplo:1"><br><br>
+            <input class="input" name="metros" placeholder="Exemplo:1"><br><br>
             
             <label><strong>Centimetros</strong></label><br>
-            <input type="number" name="centimetros" placeholder="Exemplo: 75"><br><br>
+            <input class="input" name="centimetros" placeholder="Exemplo: 75"><br><br>
             
             <label><strong>Resultado</strong></label><br>
-            <input type="number" name="resultado" disabled="disabled"><br><br>
-            
-            <div class="botao">
-                <a class="textoBotao" href="#" onclick="enviar()">Obter resultado</a>
+            <input class="input" name="resultado" disabled="disabled"><br><br>
+            <div class="divBotao">
+                <div class="botao">
+                    <a class="textoBotao" href="#" onclick="enviar()">Obter resultado</a>
+                </div>
+                <div class="botao">
+                    <a class="textoBotao" href="#" onclick="reset()">Limpar</a>
+                </div>
             </div>
-            <p id="paragraph"></p>
+            <p class="paragraph "id="paragraph"></p>
         </form>
+        <img class="tabelaIMC" id="tabelaIMC">
     </main>
     <script src="./script.js"></script>
 </body>
