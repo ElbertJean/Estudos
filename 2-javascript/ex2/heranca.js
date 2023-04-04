@@ -26,7 +26,7 @@ class Cliente {
     }
 }
 
-class Dono extends Cliente {
+class Dono extends Cliente {     // pega a classe Cliente como pai, consome os atributos dela
         
 }
 

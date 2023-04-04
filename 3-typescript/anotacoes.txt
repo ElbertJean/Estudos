@@ -1,0 +1,95 @@
+-> Maneiras de declarar uma váriavel
+    let nome = "Elbert" // Definindo o nome sem explicitar seu tipo
+    let nome: string = "Elbert"  //Definindo explicitamente o seu tipo
+
+-> Tipos de variáveis
+    let estaAtivo: boolean = true ou false;
+    let qtdSorvete: number = 10;
+    let nome: string = "Elbert Jean";
+    let numerosPares: number[] = [2, 4, 6, 8]
+    let numerosImpar: Array<number> = [1, 3, 5, 7, 9]
+
+-> Enum: Utilizado para atribuirmos nomes amigáveis para conjuntos de valores numéricos.
+    enum Color {Red, Green, Blue};      // Definição do Enum
+    let c: Color = Color.Green;
+    // Iniciando o Enum com um valor diferente de 0
+    enum Color {Red = 1, Green, Blue};
+    let c: Color = Color.Green;
+    // Pegando o valor a partir da numeração
+    let colorName: string = Color[2];
+
+-> Any: permitindo que possamos otimizar o código da melhor forma, 
+gradualmente, sem a necessidade de verificar o tipo de dados no 
+momento da compilação.   
+    let tipoDado: any = 10;
+    tipoDado = "Teste do tipo de dado Any.. ";
+    tipoDado = false;  
+
+-> Variaveis var e let
+    -> var: Define uma variável como global ou local para uma 
+função inteira, independente do escopo no qual tenhamos definido 
+o bloco.   
+    -> let: Mantém seus resultados dentro do bloco onde a 
+variável foi especificada.
+
+-> Generics: Flexiveis para a utilização com qualquer
+tipo de dado, mas também bem definido. Exemplo:
+    // função 1 sem generics
+    function Validar(arg: number): number {
+    return arg;
+    }
+    // Função 1 alterada para suportar dados genéricos
+    function Validar(arg: any): any {
+    return arg;
+    }
+
+    function Validar<T>(arg: T): T {
+    return arg;
+    }
+
+->Modules: são executados dentro do próprio escopo, não sendo 
+possível o seu uso de forma global. Isto quer dizer que variáveis,
+funções, classes ou qualquer outra definição, serão visíveis 
+apenas no módulo onde foram declarados. Qualquer arquivo 
+contendo um nível superior de import ou export é considerado um 
+módulo.
+    module Validacoes {
+    class ValidacaoCEP {
+        ehValido(s: string) {
+            return s.length === 8 && numberRegexp.test(s);
+            }
+        }
+    }
+    export { ValidacaoCEP };
+    // FUNCIONA COMO O EXPORT DO REACT NATIVE PARA UTILIZAR ESSA FUNÇÃO EM OUTRO ARQUIVO COM IMPORT.
+
+    import { ValidacaoCEP } from "./ValidacaoCEP";
+    let validaCEP = new ValidacaoCEP();
+
+->Interfaces: é a possibilidade de criarmos interfaces 
+personalizadas, que nos ajudam no momento em que precisamos 
+ter consistência entre os conjuntos de objetos, garantindo 
+assim que os tipos adequados sejam utilizados.
+        interface IPessoa {
+        Nome: string;
+        Sobrenome: string;
+    }
+
+    class PessoaFisica implements IPessoa {
+    Nome : string;
+    Sobrenome : string;
+    constructor(public nome, public sobrenome) {
+        this.Nome = nome
+            this.Sobrenome = sobrenome;
+    }
+    }
+
+    class ContaCorrente {
+        adicionarCorrentista(pessoa: IPessoa){
+            alert(pessoa.Nome);
+        }
+    }
+
+    let cliente = new PessoaFisica("Edson", "Dionisio");
+    let conta = new ContaCorrente();
+    conta.adicionarCorrentista(cliente);
