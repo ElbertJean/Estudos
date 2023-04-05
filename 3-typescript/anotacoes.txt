@@ -93,3 +93,9 @@ assim que os tipos adequados sejam utilizados.
     let cliente = new PessoaFisica("Edson", "Dionisio");
     let conta = new ContaCorrente();
     conta.adicionarCorrentista(cliente);
+
+-> Cross-browser: Código é aceito por vários navegadores como Chrome, Firefox, Edge, Opera, etc;
+    Os códigos são convertidos automaticamentes para ECMAScript 3, 5 ou para o commonjs.
+    
+
+
