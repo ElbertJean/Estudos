@@ -1,0 +1,35 @@
+MVC ( MODEL, VIEW, CONTROLER )
+
+MVC -> Facilita a troca de informações entre a interface do usuário aos dados no banco, fazendo com que as respostas sejam mais rápidas e dinâmicas.
+
+-> 1. VIÃO GERAL
+	MODEL: Coração da aplicação ( cadama que liga ao banco de dados )
+		- Regras de negócio
+		- Endidades
+		- Cadama de acesso à dados
+	
+	VIEW: Responsável por renderizar a resposta (responsável por renderizar a página com resposta/requisição). Tudo que desrespeita a visualização está relacionado com a camada View.
+		- HTML
+		- CSS
+		- JS
+		- Template Engine	
+	
+	CONTROLER: Faz o intermédio de todo o fluxo desde de: pedir para o model informações da base de dados já que ele detem essa lógica/dados. Ele pega essas informações, trabalha e joga na View para ser renderizada.
+	
+	Exemplo de MVC:
+	Um entregador necessita entregar uma carta para uma pessoa que trabalha em um prédio (prédio seria a estrutura MVC), chegando nesse prédio, ele encontra uma recepcionista que o recebe, coleta as informações da entrega e então, ela vai atrás da pessoa para entregar a carta e trazer a assinatura da pessoa. Essa ida até essa pessoa para entregar a carta e a volta para entregar a assinatura da pessoa para o entregador, seria o Controler (ela faz o intermédio das informações, leva e trás a informação).
+	
+	BROWSER -> WEB SERVER -> APLICAÇÃO -> CONTROLLER 
+	BROWSER - Gera uma requisição a partir de uma URL, essa requisição vai bater no Web Server
+	WEB SERVER - Pode ser um tomcat, apache, vai depender da tecnologia que está utilizando. Pelo Web Server, ele vai direcionar para a aplicação.
+	Aplicação - Dentro da aplicação, o framework vai saber para onde redirecionar.
+	Controller - A primeira camada a receber a informação.
+	
+	
+	Exemplo sem precisar acessar o banco de dados:
+	BROWSER -> REQUISIÇÃO -> CONTROLLER -> ACESSAR AO SERVIDOR -> ENCAMINHA VIEW -> RECEBE VIEW RESPOSTA -> RENDERIZA PÁGINA
+	O BROWSER vai gerar uma requisição que vai chegar até o Controller (que no caso é o servidor), o Controller vai encaminhar essa requisição para a VIEW que vai enviar resposta e renderizar no Browser.
+	
+	Exemplo precisando acessar o banco de dados:
+	BROWSER -> REQUISIÇÃO -> CONTROLLER -> ACESSAR AO SERVIDOR -> ACESSA O MODEL PARA OBTER INFORMAÇÕES DE DB -> PEGA ESSAS INFORMAÇÕES E VOLTA PARA O CONTROLLER -> ENCAMINHA VIEW -> RECEBE VIEW RESPOSTA -> RENDERIZA PÁGINA
+	O BROWSER vai gerar uma requisição que vai chegar até o Controller (que no caso é o servidor), o Controller verificando que precisa acessar db, ele vai acessar as informações do db no MODEL, pegar essas informações e trazer de volta para o Controler, feito isso, ele encaminhar essa requisição para a VIEW que vai enviar resposta e renderizar no Browser.
