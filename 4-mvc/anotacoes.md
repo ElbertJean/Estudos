@@ -2,7 +2,7 @@ MVC ( MODEL, VIEW, CONTROLER )<br><br>
 
 MVC -> Facilita a troca de informações entre a interface do usuário aos dados no banco, fazendo com que as respostas sejam mais rápidas e dinâmicas.<br><br>
 
--> 1. VIÃO GERAL<br>
+-> 1. VISÃO GERAL<br>
 	MODEL: Coração da aplicação ( cadama que liga ao banco de dados )<br>
 		- Regras de negócio<br>
 		- Endidades<br>
