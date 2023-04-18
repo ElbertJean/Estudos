@@ -1,18 +1,13 @@
-<? 
+<?php
 
-    $dbHost = 'localhost/pgadmin4';
-    $dbUsername = 'elbertjeandossantos@gmail.com';
-    $dbPassword = 'Dgs589*-+';
-    $dbName = 'formulario';
+$servidor = "localhost";
 
-    $mysqli = new mysqli ($dbHost, $dbUsername,$dbPassword, $dbName);
+$usuario = "postgres";
 
-    if ($mysqli->connect_errno) {
-        echo "Erro";
-    } else {
-        echo "Conexão efetuada com sucesso";
-    }
+$senha ="Dgs589*-+";
 
-    echo ($mysqli);
+$conexao = pg_connect($servidor, $usuario, $senha) or
+die ("Não foi possível conectar ao servidor PostGreSQL");
 
+echo "Conexão efetuada com sucesso!!";
 ?>
