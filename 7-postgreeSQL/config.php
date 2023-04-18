@@ -1,10 +1,10 @@
 <?php
 
-$servidor = "localhost";
+$servidor = "Localhost";
 
-$usuario = "postgres";
+$usuario = "root";
 
-$senha ="Dgs589*-+";
+$senha ="";
 
 $conexao = pg_connect($servidor, $usuario, $senha) or
 die ("Não foi possível conectar ao servidor PostGreSQL");
