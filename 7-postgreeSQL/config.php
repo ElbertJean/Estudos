@@ -1,13 +1,12 @@
 <?php
 
-$servidor = "Localhost";
+$dadosParaConexao = "host=localhost port=5432 dbname=ej_informatica user=elbinho password=Dgs589*-+";
+$dbConexao = pg_connect($dadosParaConexao); 
 
-$usuario = "root";
+if ($dbConexao -> connect_errno) {
+    echo "Não foi possível conectar ao servidor";
+} else {
+    echo "Conectado com sucesso";
+}
 
-$senha ="";
-
-$conexao = pg_connect($servidor, $usuario, $senha) or
-die ("Não foi possível conectar ao servidor PostGreSQL");
-
-echo "Conexão efetuada com sucesso!!";
 ?>

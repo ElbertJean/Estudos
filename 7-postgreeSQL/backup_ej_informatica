@@ -1,0 +1,442 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 15.2 (Ubuntu 15.2-1.pgdg22.04+1)
+-- Dumped by pg_dump version 15.2 (Ubuntu 15.2-1.pgdg22.04+1)
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- Name: clientes; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.clientes (
+    cod_cliente integer NOT NULL,
+    nome_cliente character varying(20) NOT NULL,
+    sobrenome_cliente character varying(40) NOT NULL
+);
+
+
+ALTER TABLE public.clientes OWNER TO postgres;
+
+--
+-- Name: pedidos; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.pedidos (
+    cod_pedido integer NOT NULL,
+    cod_cliente integer NOT NULL,
+    cod_produto integer NOT NULL,
+    qtde smallint NOT NULL
+);
+
+
+ALTER TABLE public.pedidos OWNER TO postgres;
+
+--
+-- Name: produtos; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.produtos (
+    cod_produto integer NOT NULL,
+    nome_produto character varying(30) NOT NULL,
+    descricao text,
+    preco numeric NOT NULL,
+    qtde_estoque smallint DEFAULT 0,
+    CONSTRAINT produtos_preco_check CHECK ((preco > (0)::numeric))
+);
+
+
+ALTER TABLE public.produtos OWNER TO postgres;
+
+--
+-- Name: faturas; Type: VIEW; Schema: public; Owner: postgres
+--
+
+CREATE VIEW public.faturas AS
+ SELECT cl.nome_cliente AS "Cliente",
+    pr.nome_produto AS "Produto",
+    pe.qtde AS "Quantidade",
+    pe.cod_pedido AS "Pedido",
+    (pr.preco * (pe.qtde)::numeric) AS "Fatura"
+   FROM ((public.pedidos pe
+     JOIN public.clientes cl ON ((pe.cod_cliente = cl.cod_cliente)))
+     JOIN public.produtos pr ON ((pe.cod_produto = pr.cod_produto)));
+
+
+ALTER TABLE public.faturas OWNER TO postgres;
+
+--
+-- Name: publicacao; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.publicacao (
+    id integer NOT NULL,
+    nome character varying(50),
+    datapub date,
+    idioma character varying(25),
+    npaginas smallint
+);
+
+
+ALTER TABLE public.publicacao OWNER TO postgres;
+
+--
+-- Name: livros; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.livros (
+    isbn13 character(13),
+    tipo_capa character varying(20),
+    edicao smallint
+)
+INHERITS (public.publicacao);
+
+
+ALTER TABLE public.livros OWNER TO postgres;
+
+--
+-- Name: pedidos_cod_pedidos_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.pedidos_cod_pedidos_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.pedidos_cod_pedidos_seq OWNER TO postgres;
+
+--
+-- Name: pedidos_cod_pedidos_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.pedidos_cod_pedidos_seq OWNED BY public.pedidos.cod_pedido;
+
+
+--
+-- Name: peds; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.peds (
+    id integer NOT NULL,
+    pedido json NOT NULL
+);
+
+
+ALTER TABLE public.peds OWNER TO postgres;
+
+--
+-- Name: peds_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.peds_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.peds_id_seq OWNER TO postgres;
+
+--
+-- Name: peds_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.peds_id_seq OWNED BY public.peds.id;
+
+
+--
+-- Name: publicacao_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.publicacao_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.publicacao_id_seq OWNER TO postgres;
+
+--
+-- Name: publicacao_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.publicacao_id_seq OWNED BY public.publicacao.id;
+
+
+--
+-- Name: revistas; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.revistas (
+    issn character(8),
+    numero smallint
+)
+INHERITS (public.publicacao);
+
+
+ALTER TABLE public.revistas OWNER TO postgres;
+
+--
+-- Name: view_compras; Type: MATERIALIZED VIEW; Schema: public; Owner: postgres
+--
+
+CREATE MATERIALIZED VIEW public.view_compras AS
+ SELECT clientes.nome_cliente,
+    produtos.nome_produto AS produtos,
+    pedidos.qtde
+   FROM ((public.pedidos
+     JOIN public.clientes ON ((pedidos.cod_cliente = clientes.cod_cliente)))
+     JOIN public.produtos ON ((pedidos.cod_produto = produtos.cod_produto)))
+  ORDER BY clientes.nome_cliente
+  WITH NO DATA;
+
+
+ALTER TABLE public.view_compras OWNER TO postgres;
+
+--
+-- Name: livros id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.livros ALTER COLUMN id SET DEFAULT nextval('public.publicacao_id_seq'::regclass);
+
+
+--
+-- Name: pedidos cod_pedido; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.pedidos ALTER COLUMN cod_pedido SET DEFAULT nextval('public.pedidos_cod_pedidos_seq'::regclass);
+
+
+--
+-- Name: peds id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.peds ALTER COLUMN id SET DEFAULT nextval('public.peds_id_seq'::regclass);
+
+
+--
+-- Name: publicacao id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.publicacao ALTER COLUMN id SET DEFAULT nextval('public.publicacao_id_seq'::regclass);
+
+
+--
+-- Name: revistas id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.revistas ALTER COLUMN id SET DEFAULT nextval('public.publicacao_id_seq'::regclass);
+
+
+--
+-- Data for Name: clientes; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.clientes (cod_cliente, nome_cliente, sobrenome_cliente) FROM stdin;
+1	Fábio	dos Reis
+2	Monica	Silveira
+3	Ana	Teixeira
+4	Fábio	dos Santos
+\.
+
+
+--
+-- Data for Name: livros; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.livros (id, nome, datapub, idioma, isbn13, tipo_capa, edicao, npaginas) FROM stdin;
+2	50 ideias de Química	2022-02-02	Português	9786555356519	Brochura	2	152
+\.
+
+
+--
+-- Data for Name: pedidos; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.pedidos (cod_pedido, cod_cliente, cod_produto, qtde) FROM stdin;
+5	1	2	3
+6	2	3	2
+7	1	3	4
+8	2	6	3
+9	2	5	2
+10	3	8	5
+\.
+
+
+--
+-- Data for Name: peds; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.peds (id, pedido) FROM stdin;
+1	{"comprador": "Fábio", "produtos": {"bebida": "Suco de Caju", "comida": "Pizza de Atum"}}
+2	{"comprador": "Mônica", "produtos": {"bebida": "Água Tônica", "comida": "Beirute"}}
+3	{"comprador": "Lauro", "produtos": {"bebida": "Campari", "comida": "Espaguete"}}
+4	{"comprador": "Henrique", "produtos": {"bebida": "Coca-cola", "comida": "feijoada"}}
+\.
+
+
+--
+-- Data for Name: produtos; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.produtos (cod_produto, nome_produto, descricao, preco, qtde_estoque) FROM stdin;
+1	Álcool Gel	Garrafa de álcool em gel de 1 litro	17.60	20
+3	Pasta de Dentes	Tubo de pasta de dentes de 90 gramas	4.40	12
+6	Escova de dente	Escova de dente macia	7.70	20
+7	Fio dental	Fio dental com 50m	8.80	50
+8	Refrigerante	Garrafa de refrigerante de 1 litro	8.80	16
+9	Refrigerante	Garrafa de refrigerante de 600 ml	4.40	14
+2	Luvas de Látex	Caixa de luvas de látex com 100 unidades	42.90	21
+5	Enxaguante Bucal	Antisséptico bucal de 500ml	23.10	24
+11	Desodorante Axe	Desororante rolon Axe	20.90	13
+13	Biscoito	Pacote de biscoito integral 110g	4.40	16
+10	Refrigerante	Lata de refrigerante de 350 ml	3.49	45
+\.
+
+
+--
+-- Data for Name: publicacao; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.publicacao (id, nome, datapub, idioma, npaginas) FROM stdin;
+1	Le Monde	2022-04-11	Francês	329
+\.
+
+
+--
+-- Data for Name: revistas; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.revistas (id, nome, datapub, idioma, issn, numero, npaginas) FROM stdin;
+3	Saber Eletrônica	1997-12-01	Português	01016717	299	629
+\.
+
+
+--
+-- Name: pedidos_cod_pedidos_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.pedidos_cod_pedidos_seq', 10, true);
+
+
+--
+-- Name: peds_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.peds_id_seq', 4, true);
+
+
+--
+-- Name: publicacao_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.publicacao_id_seq', 3, true);
+
+
+--
+-- Name: clientes clientes_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.clientes
+    ADD CONSTRAINT clientes_pkey PRIMARY KEY (cod_cliente);
+
+
+--
+-- Name: livros livros_isbn13_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.livros
+    ADD CONSTRAINT livros_isbn13_key UNIQUE (isbn13);
+
+
+--
+-- Name: pedidos pedidos_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.pedidos
+    ADD CONSTRAINT pedidos_pkey PRIMARY KEY (cod_pedido);
+
+
+--
+-- Name: peds peds_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.peds
+    ADD CONSTRAINT peds_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: publicacao pk_id_pub; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.publicacao
+    ADD CONSTRAINT pk_id_pub PRIMARY KEY (id);
+
+
+--
+-- Name: produtos produtos_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.produtos
+    ADD CONSTRAINT produtos_pkey PRIMARY KEY (cod_produto);
+
+
+--
+-- Name: revistas revistas_issn_numero_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.revistas
+    ADD CONSTRAINT revistas_issn_numero_key UNIQUE (issn, numero);
+
+
+--
+-- Name: pedidos pedidos_cod_clientes_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.pedidos
+    ADD CONSTRAINT pedidos_cod_clientes_fkey FOREIGN KEY (cod_cliente) REFERENCES public.clientes(cod_cliente);
+
+
+--
+-- Name: pedidos pedidos_cod_produto_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.pedidos
+    ADD CONSTRAINT pedidos_cod_produto_fkey FOREIGN KEY (cod_produto) REFERENCES public.produtos(cod_produto);
+
+
+--
+-- Name: view_compras; Type: MATERIALIZED VIEW DATA; Schema: public; Owner: postgres
+--
+
+REFRESH MATERIALIZED VIEW public.view_compras;
+
+
+--
+-- PostgreSQL database dump complete
+--
+
