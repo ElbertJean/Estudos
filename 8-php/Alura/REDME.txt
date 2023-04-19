@@ -1,0 +1,9 @@
+Estudos de PHP em várias plataformas
+
+Youtube | Node Studio Treinamentos - Curso de PHP
+Alura - Introdução ao PHP: Primeiros passos com a linguagem
+Alura - Avançando com PHP: Arrays, Strings, Função e Web
+Alura - Intrudução Orientação a Objetos com PHP
+Alura - Avançado Orientação a Objetos com PHP
+
+Livro - PHP Moderno. Novos recursos e boas práticas
