@@ -43,7 +43,7 @@
             if(isset($_SESSION['logado'])):
                 unset($_SESSION['logado']);     //unset -> mata a sessão  // esvazia a variavel
                 session_destroy();  // esvazia a sessão e a destroi 
-                header("location: ./index.php");
+                header("location: ../index.php");
             endif;
         }
     }

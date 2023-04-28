@@ -1,7 +1,7 @@
 <?php 
 
     session_start();
-    require './autoload.php';
+    require_once './autoload.php';
 
     if (isset($_POST['ok'])): //ele foi clicado?
         $login = filter_input(INPUT_POST, 'login',FILTER_SANITIZE_ADD_SLASHES); //filtra o que está dentro do input
@@ -12,7 +12,7 @@
         $l->setSenha($senha);
 
         if($l->logar()):             // metodo publico logar no nosso arquivo login.class.php
-            header("location: ./home.php");    // ele é como se fosse um require, mas diferente dele, o header direciona a pagina em questão
+            header("location: ./screen/home.php");    // ele é como se fosse um require, mas diferente dele, o header direciona a pagina em questão
         else:
             $erro = '<b class="alert alert-danger">Usuário ou senha inválido</b>';
         endif;
@@ -30,9 +30,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./css/bootstrap.css">
-        <link rel="stylesheet" href="./css/style.css">
-        
+        <link rel="stylesheet" href="./css/bootstrap.css">       
         <title>Cadastro de CDs</title>
     </head>
     

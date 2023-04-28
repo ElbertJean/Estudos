@@ -20,7 +20,7 @@
 
                     echo '<hr>';
                     echo '<h4 class="alert alert-success">O item foi deletado com sucesso.</h4>';
-                    echo '<a href="home.php" class="btn btn-primary">Voltar para Home</a>';
+                    echo '<a href="./home.php" class="btn btn-primary">Voltar para Home</a>';
                 } catch (PDOExecption $e) {
                     echo 'Houve um erro: ' . $e->getMessage();
                 }

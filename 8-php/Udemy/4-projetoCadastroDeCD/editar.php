@@ -62,7 +62,7 @@
                                 <input type="text" name="preco" class="form-control" style="margin-bottom:20px"
                                 value=" ' . $value['p_preco'] . '">';
                         
-                        echo    '<input type="submit" name="botao" href="./home.php" class="btn btn-primary" value="Alterar"> &nbsp';
+                        echo    '<input type="submit" name="botao" href="../screen/home.php" class="btn btn-primary" value="Alterar"> &nbsp';
                         echo    '<a href="./excluir.php?id=' . $id . ' " class="btn btn-danger"> Excluir </a>';
 
                     }

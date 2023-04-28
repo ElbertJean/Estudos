@@ -36,7 +36,7 @@
                 <a class="nav-link" style="margin-right:10px" href="./cadastrar.php"><b>Cadastrar</b></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" style="margin-right:10px" href="././home.php?logout=confirmar"><b>Sair</b></a>
+                <a class="nav-link" style="margin-right:10px" href="./home.php?logout=confirmar"><b>Sair</b></a>
             </li>
         </ul>
     </nav>
