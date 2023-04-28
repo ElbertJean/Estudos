@@ -7,7 +7,7 @@
     getLine() -> retorna a linha onde ocorreu o erro
     getTrace() -> retorna uma array até onde ocorreu o erro
     getTraceAsString() -> retorna as ações em forma de strings
-    try {} catch(){}
+    try {} catch(){} -> Utilizado para tratamento de exceções.
 */
 
     $nome = null;
