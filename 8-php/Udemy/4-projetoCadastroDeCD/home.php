@@ -22,6 +22,18 @@
                             Artista
                         </th>
                         <th>
+                            Tipo
+                        </th>
+                        <th>
+                            Gênero
+                        </th>
+                        <th>
+                            Data
+                        </th>
+                        <th>
+                            Gravadora
+                        </th>
+                        <th>
                             Preço
                         </th>
                         <th>
@@ -30,7 +42,7 @@
                     </tr>
                     <?php   
 
-                        $sql = ('SELECT p_id, p_nome, p_autor, p_preco FROM produtos'); //prepara a consulta
+                        $sql = ('SELECT p_id, p_nome, p_autor, p_tipo, p_genero, p_data, p_gravadora, p_preco FROM produtos'); //prepara a consulta
                         $statement = $pdo->prepare($sql); //prepara os dados coletados do sql
                         $statement->execute(); //executa os dados coletados
                         
@@ -41,6 +53,15 @@
                             echo "<td>" . $value['p_id'] . "</td>";
                             echo "<td>" . $value['p_nome'] . "</td>";
                             echo "<td>" . $value['p_autor'] . "</td>";
+                                if ($value['p_tipo'] == 1) {
+                                    $tipo = 'CD';
+                                } else {
+                                    $tipo = 'DVD';
+                                }
+                            echo '<td>' . $tipo . '</td>';
+                            echo "<td>" . $value['p_genero'] . "</td>";
+                            echo "<td>" . date('d/m/Y', strtotime($value['p_data'])) . "</td>";
+                            echo "<td>" . $value['p_gravadora'] . "</td>";
                             echo "<td> R$ " . $value['p_preco'] . "</td>";
                             echo '<td><a href="./editar.php?id=' . $value['p_id'] . '">Editar</a><td>';
                             echo "</tr>";

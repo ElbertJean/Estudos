@@ -52,18 +52,18 @@
 
                         echo    '<label>Data:</label> 
                                 <input type="text" name="data" class="form-control"
-                                value=" ' . $value['p_data'] . '" disabled>';
+                                value=" ' . date('d/m/Y', strtotime($value['p_data'])) . '" disabled>';
 
                         echo    '<label>Gravadora:</label> 
                                 <input type="text" name="gravadora" class="form-control"
                                 value=" ' . $value['p_gravadora'] . '">';
 
                         echo    '<label>Preço:</label> 
-                                <input type="text" name="preco" class="form-control"
+                                <input type="text" name="preco" class="form-control" style="margin-bottom:20px"
                                 value=" ' . $value['p_preco'] . '">';
                         
                         echo    '<input type="submit" name="botao" href="./home.php" class="btn btn-primary" value="Alterar"> &nbsp';
-                        echo    '<a href="./excluir.php?id=' . $id . ' "class=btn btn-danger"> Excluir </a>';
+                        echo    '<a href="./excluir.php?id=' . $id . ' " class="btn btn-danger"> Excluir </a>';
 
                     }
 
@@ -87,7 +87,7 @@
                             $statement->bindParam(':id_alb', $id_alb, PDO::PARAM_STR); // blinda os dados 
                             $statement->execute();
                             
-                            echo '<h4 class="alert alert-sucess" style="margin-top:30px">Item atualizado com sucesso</h4>';
+                            echo '<h4 class="alert alert-sucess" style="margin-top:10px">Item atualizado com sucesso</h4>';
                             echo '<a href="./home.php" class="btn btn-primary">Voltar para home</a>';
                         } catch (PDOException $e){
                             echo 'Erro ao atualizar os dados' . $e->getMessage();

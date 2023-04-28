@@ -11,7 +11,7 @@ class Conect {
 	// atributo estático para instanciar do PDO
 	private static $pdo;
 
-	private function __construct(){
+	public function __construct(){
 		//
 	} 
 
