@@ -32,7 +32,7 @@
 
                         echo    '<label>Nome:</label> 
                                 <input type="text" name="nome" class="form-control"
-                                value=" ' . $value['p_nome'] . '" required>';
+                                value="' . $value['p_nome'] . '" required>';
                         echo    '<label>Autor:</label> 
                                 <input type="text" name="autor" class="form-control"
                                 value=" ' . $value['p_autor'] . '" required>';
@@ -44,23 +44,23 @@
                                     }
                         echo    '<label>Tipo</label> 
                                 <input type="text" name="tipo" class="form-control"
-                                value=" ' . $tipo . '" required>';
+                                value="' . $tipo . '" required>';
 
                         echo    '<label>Gênero:</label> 
                                 <input type="text" name="genero" class="form-control"
-                                value=" ' . $value['p_genero'] . '" required>';
+                                value="' . $value['p_genero'] . '" required>';
 
                         echo    '<label>Data:</label> 
                                 <input type="text" name="data" class="form-control"
-                                value=" ' . date('d/m/Y', strtotime($value['p_data'])) . '" disabled>';
+                                value="' . date('d/m/Y', strtotime($value['p_data'])) . '" disabled>';
 
                         echo    '<label>Gravadora:</label> 
                                 <input type="text" name="gravadora" class="form-control"
-                                value=" ' . $value['p_gravadora'] . '">';
+                                value="' . $value['p_gravadora'] . '">';
 
                         echo    '<label>Preço:</label> 
                                 <input type="text" name="preco" class="form-control" style="margin-bottom:20px"
-                                value=" ' . $value['p_preco'] . '">';
+                                value="' . $value['p_preco'] . '">';
                         
                         echo    '<input type="submit" name="botao" href="../screen/home.php" class="btn btn-primary" value="Alterar"> &nbsp';
                         echo    '<a href="./excluir.php?id=' . $id . ' " class="btn btn-danger"> Excluir </a>';

@@ -27,13 +27,16 @@
                 <a class="nav-link" href="./home.php"><b>LOJA DE CD</b></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" style="color:black; font-weight:bold"><b>Bem vindo <?php  echo $_SESSION['usuarios'];?></b></a>
+                <a class="nav-link" style="color:black; font-weight:bold"><b>Logado com: <?php  echo $_SESSION['usuarios'];?></b></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link active" style="margin-right:10px; margin-left:10px" href="./home.php"><b>Home</b></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" style="margin-right:10px" href="./cadastrar.php"><b>Cadastrar</b></a>
+                <a class="nav-link" style="margin-right:10px" href="./cadastrar.php"><b>Cadastrar produto</b></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" style="margin-right:10px" href="./usuario_login.php"><b>Cadastrar usuário</b></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" style="margin-right:10px" href="./home.php?logout=confirmar"><b>Sair</b></a>

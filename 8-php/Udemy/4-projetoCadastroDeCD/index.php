@@ -46,6 +46,9 @@
                         <label style="margin-top:20px">Senha</label>
                         <input type="password" name="senha" class="form-control" style="width: 300px; height 10px; margin:auto" required>
                         <input type="submit" name="ok" value="Logar "class="btn btn-primary btn-block" style="width: 150px; height 10px; margin:auto; margin-top:20px">
+                        <p style=" margin-top:50px; ">
+                            <a href="./usuario_login.php" style="text-align:center; color:black"> Não possui conta? Cadastre-se </a>
+                        </p>
                     </div>
                 </form>
                 <?php echo isset($erro) ? $erro : ''; ?>
