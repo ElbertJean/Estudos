@@ -8,7 +8,7 @@ class PessoaFisica {
 }
 class ContaCorrente {
     adicionarCorrentista(pessoa) {
-        alert(pessoa.Nome);
+        console.log(pessoa.Nome);
     }
 }
 let cliente = new PessoaFisica("Elbert", "Jean");

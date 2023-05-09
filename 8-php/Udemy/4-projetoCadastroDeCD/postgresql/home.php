@@ -67,7 +67,7 @@
                             echo "<td>" . $value['descricao'] . "</td>";
                             echo "<td>" . $value['preco'] . '</td>';
                             echo "<td style=\"text-align:center\">"  . $value['qtde_estoque'] . "</td>";
-                        //    echo '<td><a href="./editar.php?id=' . $value['cod_produto'] . '">Editar</a><td>';
+                           echo '<td><a href="./editar.php?id=' . $value['cod_produto'] . '">Editar</a><td>';
                             echo "</tr>";
                         }
                     ?>

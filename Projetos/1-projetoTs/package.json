@@ -1,0 +1,17 @@
+{
+  "name": "livraria",
+  "version": "1.0.0",
+  "description": "livraria Dom Bosco",
+  "main": "livro.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.1.1",
+    "ts-node": "^10.9.1",
+    "tslib": "^2.5.0",
+    "typescript": "^5.0.4"
+  }
+}
