@@ -3,7 +3,7 @@
 //constantes
 define('HOST', 'localhost');
 define('DBNAME', 'ej_informatica');
-define('USER', 'elbinho');
+define('USER', 'elbert');
 define('PASSWORD', 'Dgs589*-+');
 
 class Conect {
@@ -23,7 +23,7 @@ class Conect {
 
 				self::$pdo = new PDO("pgsql:host=" . HOST . "; dbname=" . DBNAME . ";", USER, PASSWORD, $opcoes);
 		
-				//echo "conectado ao banco de dados: " . DBNAME;
+				echo "conectado ao banco de dados: " . DBNAME;
 				} catch (PDOException $e) {
 					print "Erro ao se conectar ao banco: " . $e->getMessage();
 				}
