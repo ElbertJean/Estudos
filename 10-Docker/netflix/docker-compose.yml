@@ -1,0 +1,32 @@
+version: "3.8"                   #identifica a versão do docker-compose
+
+services:
+  frontend:                      #nome dos containers
+    depends_on:                  #de quem essa aplicação depende?
+      - backend
+    build: ./frontend            #constroi esse build de acordo com o diretório do Dockerfile do frontend
+    ports:                       #definimos as portas de acordo com o Dockerfile
+      - 3000:3000
+  
+  backend:
+    depends_on:
+      - db       
+    build: ./backend
+    ports:
+      - 3001:3001
+    environment:                 #faz a comunicação com o banco de dados
+      DB_URL: mongodb://db/vidly
+    command: ./docker-entrypoint.sh
+  
+  db:
+    image: mongo:4.0-xenial      #definimos a imagem do banco de dados     
+    ports:
+      - 27017:27017              #porta padrão do mongo
+    volumes:                     #nesta aplicação, se utiliza o volume vidly
+      - vidly:/data/db           #armazena dentro de db, senão, é armazenada na parte volátil
+
+volumes:    
+  vidly:    #preciso do volume vidly por conta da aplicação
+
+
+  
