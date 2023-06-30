@@ -1,0 +1,16 @@
+.teste {
+    text-align: center;
+}
+
+.formulario{
+    width: 500px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.formulario input, 
+.formulario textarea,
+.formulario select {
+    display: block;
+    margin-top: 10px;
+}
