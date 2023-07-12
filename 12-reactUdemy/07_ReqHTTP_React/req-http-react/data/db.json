@@ -1,0 +1,84 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Camisa",
+      "price": 59.9
+    },
+    {
+      "id": 2,
+      "name": "Calça vermelha",
+      "price": 90
+    },
+    {
+      "id": 3,
+      "name": "Boné aba reta",
+      "price": 29.9
+    },
+    {
+      "name": "Elbert Jean",
+      "price": "65.000",
+      "id": 4
+    },
+    {
+      "name": "teste",
+      "price": "1",
+      "id": 5
+    },
+    {
+      "name": "teste",
+      "price": "1",
+      "id": 6
+    },
+    {
+      "name": "tessss",
+      "price": "1",
+      "id": 7
+    },
+    {
+      "name": "tessss",
+      "price": "1",
+      "id": 8
+    },
+    {
+      "name": "teste",
+      "price": "123",
+      "id": 9
+    },
+    {
+      "name": "aooba",
+      "price": "44444444",
+      "id": 10
+    },
+    {
+      "name": "aooba",
+      "price": "44444444",
+      "id": 11
+    },
+    {
+      "name": "",
+      "price": "",
+      "id": 12
+    },
+    {
+      "name": "sadas",
+      "price": "12",
+      "id": 13
+    },
+    {
+      "name": "sadas",
+      "price": "12",
+      "id": 14
+    },
+    {
+      "name": "teste",
+      "price": "65.000",
+      "id": 15
+    },
+    {
+      "name": "teste",
+      "price": "65.000",
+      "id": 16
+    }
+  ]
+}
