@@ -1,0 +1,45 @@
+nav {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+nav a {
+  margin: 0 10px;
+  padding: 5px;
+  text-decoration: none;
+  color: #343A40;
+}
+
+nav a:hover {
+  color:#CCCCCC
+}
+
+.active {
+  background-color: #343A40;
+  color: #FFFFFF;
+}
+
+.on {
+  background-color: #343A40;
+  color: #FFFFFF;
+  border-radius: 5px;
+  width: 100px;
+}
+
+.on:hover {
+  background-color: #343A40;
+  opacity: 0.9;
+}
+
+.off {
+  border: 1px solid #343A40;
+  color: #343A40;
+  border-radius: 5px;
+  width: 100px;
+}
+
+.off:hover {
+  background-color: #FFF;
+  opacity: 0.7;
+}

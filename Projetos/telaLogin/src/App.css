@@ -1,0 +1,84 @@
+.container {
+  display: flex;
+}
+
+.containerCard, .containerImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 50%;
+}
+
+
+.card {
+  width: 450px;
+  height:700px;
+}
+
+.logo {
+  width:100%;
+}
+
+.title{
+  text-align: center;
+  font-size: 30px;
+  margin-top: -20px;
+  line-height: 40px;
+}
+
+.image {
+  height: 100vh;
+}
+
+.formulario {
+  margin-top: 50px;
+  padding-inline:50px;
+}
+
+.formulario input {
+  width: 75%;
+  height: 30px;
+  border: 1px solid #343A40;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  background-color: #ffffff00;
+  padding-inline: 20px;
+}
+
+.divInput {
+  text-align: center;
+  
+}
+
+.paragraph {
+  margin-top: 0px;
+  text-align: right;
+  padding-inline: 30px;
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+
+}
+
+.containerButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  width: 100px;
+  height: 40px;
+  background-color: #343A40;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: right;
+  border: 1px solid #343A40;
+  border-radius: 5px;
+}
+
+.textButton {
+  font-weight: bold;
+}

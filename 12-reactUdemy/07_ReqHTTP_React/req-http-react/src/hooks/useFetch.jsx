@@ -35,10 +35,14 @@ export const useFetch = (url) => {
             
             setLoading(true);
 
-            const res = await fetch (url)
-            const json = await res.json();
+            try {
+                const res = await fetch (url)
+                const json = await res.json();
 
-            setData(json);
+                setData(json);
+            } catch(error) {
+               setError(error.message); 
+            }
 
             setLoading(false);
         }
@@ -65,6 +69,6 @@ export const useFetch = (url) => {
 
     }, [config, method, url])
 
-    return {data, httpConfig, loading};
+    return {data, httpConfig, loading, error};
     
 }

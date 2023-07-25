@@ -8,7 +8,7 @@ function App() {
 
   const [products, setProducts] = useState([]);
   
-  const {data: items, httpConfig, loading} = useFetch(url);
+  const {data: items, httpConfig, loading, error} = useFetch(url);
 
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
@@ -36,6 +36,7 @@ function App() {
         <h2>Lista de produtos</h2>
         {/* 6 - loading */}
         {loading && <p>Carregando dados...</p>}
+        {error && <p>{error}</p>}
         {!loading && (
           <ul>
           {items && items.map((product) => (
