@@ -1,0 +1,10 @@
+{
+    "translation" : {
+        "Edit src/App.js and save to reload." : "Edit src/App.js and save to reload.",
+        "Learn React" : "Go to page Contact",
+        "Hello World with i18next library" : "Hello World with i18next library",
+        "Learn React to home" :  "Go to page Home",
+        "Página Home": "Welcome to Home",
+        "Página Contato": "Page Contact"
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "translation" : {
+        "Edit src/App.js and save to reload." : "Edite a pasta src/App.js e salve para carregar",
+        "Learn React" : "Ir para página de contato",
+        "Hello World with i18next library" : "Olá mundo com a biblioteca i18next",
+        "Learn React to home" : "Voltar para página da Home",
+        "Página Home": "Bem vindo a página inicial",
+        "Página Contato": "Página de Contato"
+    }
+}
