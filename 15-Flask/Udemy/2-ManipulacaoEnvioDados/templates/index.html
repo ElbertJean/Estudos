@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lista de Frutas</title>
+    </head>
+    <body>
+        <div style="text-align: center">
+            <h2>Lista de Frutas</h2>
+            <hr>
+            <ol style="list-style-type: none;">
+                {% for valor in frutas%}
+                <li>{{valor}}</li>
+                {% endfor %}
+            </ol>
+            <form action="{{url_for('principal')}}" method="POST">    <!-- Qual rota deve tomar conta dessa função? No caso a 'principal'-->    
+                <label>Nome da Fruta</label>
+                <input type="text" name="fruta">
+                <button>Adicionar</button>
+            </form>
+        </div>
+    </body>
+</html>
