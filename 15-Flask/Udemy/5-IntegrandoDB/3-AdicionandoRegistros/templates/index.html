@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+<div>
+    <h2 style="text-align: center;">Lista de Frutas</h2>
+    <hr>
+    <form action="{{url_for('principal')}}" method="POST" >    <!-- Qual rota deve tomar conta dessa função? No caso a 'principal'-->    
+        <div class="form-group">
+            <label for="exemploFruta">Nome da Fruta</label>
+            <input type="text" name="fruta" id="exemploFruta" class="form-control mb-2" placeholder="Digite o nome de uma fruta">
+        </div>
+        <button class="btn btn-primary mb-5">Adicionar</button>
+    </form>
+    <div>
+        <ul class="list-group">
+            {% for valor in frutas%}
+            <li class="list-group-item">{{valor}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock conteudo %}
