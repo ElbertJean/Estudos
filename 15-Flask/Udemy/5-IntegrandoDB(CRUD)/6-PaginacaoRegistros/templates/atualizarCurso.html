@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+
+<h2 class="my-5" style="text-align: center;">Diário do Professor</h2>
+<hr>
+
+<form action="{{url_for('atualizar_curso' , id=curso.id)}}" method="POST" class="form-control">
+    <label class="mb-1">Nome</label>
+    <input class="form-control mb-2" type="text" name="nome" value="{{curso.nome}}" placeholder="Nome do curso" required>
+    <label class="mb-1">Descrição</label>
+    <input class="form-control mb-2" type="text" name="descricao" value="{{curso.descricao}}" placeholder="Descrição do curso" required>
+    <label class="mb-1">Carga Horária</label>
+    <input class="form-control mb-2" type="number" name="ch" value="{{curso.ch}}" placeholder="CH do curso" required>
+    <button class="btn btn-success mt-3" style="margin-right: 10px;">Editar</button>
+    <a href="{{url_for('lista_cursos')}}" class="btn btn-link text-danger mt-3" style="text-decoration: none;">Voltar</a>
+</form>
+
+{% endblock conteudo %}

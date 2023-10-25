@@ -1,0 +1,37 @@
+{% extends "base/base.html"%}
+{% block conteudo %}
+<div class="text-center">
+    <h1 class="py-4">Adicionar serviço</h1>
+    <hr>
+</div>
+<div>
+    <form action="{{url_for('adicionar_servico')}}" method="POST">
+        <div class="form-group">
+          <label for="nome">Nome do Cliente</label>
+          <input type="text" class="form-control mb-3 mt-1" name="nome" aria-describedby="emailHelp" placeholder="Joaquim Bezerra" required>
+        </div>
+        <div class="form-group">
+          <label for="entrada">Data de entrada</label>
+          <input type="text" class="form-control mb-3 mt-1" name="entrada" placeholder="01.01.2023" required>
+        </div>
+        <div class="form-group">
+            <label for="saida">Data de saída</label>
+            <input type="text" class="form-control mb-3 mt-1" name="saida" placeholder="01.01.2023">
+        </div>
+        <div class="form-group">
+            <label for="produto">Produto</label>
+            <input type="text" class="form-control mb-3 mt-1" name="produto" placeholder="Notebook Dell" required>
+        </div>
+        <div class="form-group">
+            <label for="descricao">Descrição</label>
+            <textarea type="text" class="form-control mb-3 mt-1" name="descricao" placeholder="Notebook chegou com defeito ..." required ></textarea>
+        </div>
+        <div class="form-group">
+            <label for="preco">Preço</label>
+            <input type="number" class="form-control mb-3 mt-1" name="preco" placeholder="100">
+        </div>
+        <button type="submit" class="btn btn-primary">Adicionar</button>
+        <a href="{{url_for('home')}}" class="btn btn-light">Voltar</a>
+    </form>
+</div>
+{% endblock conteudo %}
