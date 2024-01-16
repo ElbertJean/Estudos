@@ -1,0 +1,50 @@
+.container {
+  background-color: #CCC;
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  width: 600px;
+  height: 500px;
+  border-radius: 10px;
+  border: 3px solid #343A40;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.teste{
+  display: flex !important;
+}
+
+.title{
+  font-weight: bold;
+  font-size: 35px;
+}
+
+.containerCardzin {
+  display: flex !important;
+  flex-direction: row;
+  margin-top: 20px;
+  gap: 20px;
+}
+
+.cardzin {
+  width: 200px;
+  height: 150px;
+  border-radius: 10px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
