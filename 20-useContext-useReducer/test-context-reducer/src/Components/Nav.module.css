@@ -1,0 +1,15 @@
+.nav {
+  display: flex;
+  gap: 100px;
+  position: absolute;
+  top: 20px;
+}
+
+.nav button {
+  background: none;
+  color: white;
+  border: none;
+  font-size: 12px;
+  cursor: pointer;
+  text-decoration: underline;
+}

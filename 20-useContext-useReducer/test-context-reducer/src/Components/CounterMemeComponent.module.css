@@ -1,0 +1,13 @@
+.imageRight {
+  position: absolute; 
+  top: 50%; 
+  right: 10%; 
+  transform: translate(-50%, -50%);
+}
+
+.imageLeft {
+  position: absolute; 
+  top: 50%; 
+  left: 25%; 
+  transform: translate(-50%, -50%);
+}

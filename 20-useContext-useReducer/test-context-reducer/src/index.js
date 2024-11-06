@@ -1,12 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './screens/App';
+import App from './Screens/App';
 import reportWebVitals from './reportWebVitals';
+
+import Router from './Routes/Router';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Router >
+      <App />
+    </Router>
   </React.StrictMode>
 );
 
