@@ -15,7 +15,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   function handleLogin() {
-    if (email === "elbertjeandossantos@gmail.com" && password === "Dgs589*-+") {
+    if (email === "elbertjean@gmail.com" && password === "12345678") {
       dispatch(login());
       navigate("/home");
     } else {
