@@ -27,6 +27,10 @@ const Login = () => {
     <div className={styles.container}>
       <div className={styles.divTitle}>
         <h1 className={styles.title}>Projeto Redux</h1>
+        <div>
+          <p className={styles.text}>Faça o login com as credenciais abaixo:</p>
+          <p className={styles.text}>e-mail: elbertjean@gmail.com | senha: 12345678</p>
+        </div>
       </div>
       <div className={styles.divForm}>
         <div className={styles.content}>

@@ -5,6 +5,7 @@ import CounterValue from "../screens/CounterValueScreen";
 import CounterButton from "../screens/CounterButtonScreen";
 import Login from "../screens/Login";
 import PrivateRoute from './PrivateRoute';
+import NotFoundScreen from '../screens/NotFoundScreen';
 
 const Router = () => {
   return (
@@ -14,7 +15,7 @@ const Router = () => {
         <Route path="/home" element={<PrivateRoute component={Home} />} />
         <Route path="/counter-value" element={<PrivateRoute component={CounterValue} />} />
         <Route path="/counter-button" element={<PrivateRoute component={CounterButton} />} />
-        <Route path="*" element={<Login />} />
+        <Route path="*" element={<NotFoundScreen />} />
       </Routes>
     </BrowserRouter>
   );
